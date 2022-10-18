@@ -1,0 +1,23 @@
+{
+    "name": "kirill-zak/algorithm-php",
+    "description": "Algorithms on PHP",
+    "license": "GPL-2.0-only",
+    "type": "library",
+    "keywords": ["algorithm"],
+    "autoload": {
+        "psr-4": {
+            "KirillZak\\Algorithm\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "KirillZak\\Algorithm\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^8.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    }
+}
