@@ -7,31 +7,16 @@ name: CI
             - master
 
 jobs:
-    Composer:
-        name: Install composer dependencies with caching
-        runs-on: ubuntu-latest
-
-        steps:
-            - name: Check out the codebase
-              uses: actions/checkout@v3
-
-            - name: Cache Composer dependencies
-              uses: actions/cache@v2
-              with:
-                  path: /tmp/composer-cache
-                  key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
-
-            - name: Run composer install
-              uses: php-actions/composer@v6
-
     Psalm:
         name: Run Psalm
         runs-on: ubuntu-latest
-        needs: [ composer ]
 
         steps:
             - name: Check out the codebase
               uses: actions/checkout@v3
+
+            - name: Run composer install
+              uses: php-actions/composer@v6
 
             - name: Run Psalm
               run: make psalm
@@ -39,11 +24,13 @@ jobs:
     ParallelLint:
         name: Run parallel-lint
         runs-on: ubuntu-latest
-        needs: [ composer ]
 
         steps:
             - name: Check out the codebase
               uses: actions/checkout@v3
+
+            - name: Run composer install
+              uses: php-actions/composer@v6
 
             - name: Run parallel-lint tests
               run: make parallel-lint
@@ -51,11 +38,13 @@ jobs:
     UnitTests:
         name: Run PHPUnit tests
         runs-on: ubuntu-latest
-        needs: [ composer ]
 
         steps:
             - name: Check out the codebase
               uses: actions/checkout@v3
+
+            - name: Run composer install
+              uses: php-actions/composer@v6
 
             - name: Run PHPUnit tests
               run: make unit-tests
