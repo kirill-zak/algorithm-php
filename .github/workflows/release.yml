@@ -1,0 +1,27 @@
+---
+name: Release
+'on':
+    push:
+        tags:
+            - '*'
+
+jobs:
+    UnitTests:
+        name: Run PHPUnit tests
+
+        steps:
+            - name: Check out the codebase
+              uses: actions/checkout@v3
+
+            - name: Run PHPUnit tests
+              run: make unit-tests
+
+    Psalm:
+        name: Run Psalm
+
+        steps:
+            - name: Check out the codebase
+              uses: actions/checkout@v3
+
+            - name: Run Psalm
+              run: make psalm
