@@ -1,6 +1,6 @@
 <?php
 
-namespace KirillZak\Algorithm\Tests\Algorithm\Search\BinarySearch;
+namespace KirillZak\Algorithm\Tests\Search\BinarySearch;
 
 use Exception;
 use KirillZak\Algorithm\Search\BinarySearch\BinarySearch;
@@ -13,8 +13,8 @@ final class BinarySearchTest extends TestCase
     private const ITEM_LIST_SIZE_FOR_INTERACTION_COUNT_100_ELEMENTS = 100;
     private const ITEM_LIST_SIZE_FOR_INTERACTION_COUNT_240000_ELEMENTS = 240000;
     private const ITERATION_COUNT_FOR_EMPTY_LIST = 0;
-    private const ITERATION_COUNT_FOR_LIST_WITH_100_ELEMENTS = 7;
-    private const ITERATION_COUNT_FOR_LIST_WITH_240000_ELEMENTS = 18;
+    private const ITERATION_COUNT_FOR_LIST_WITH_100_ELEMENTS = 6;
+    private const ITERATION_COUNT_FOR_LIST_WITH_240000_ELEMENTS = 17;
     private const SEARCHED_ITEM = 68498;
     private const SEARCHED_ITEM_FOR_INTERACTION_COUNT = 57;
     private const SEARCHED_ITEM_POSITION = 74;
@@ -31,24 +31,6 @@ final class BinarySearchTest extends TestCase
         $binarySearch = $this->createBinarySearch($itemList);
 
         $result = $binarySearch->search(self::SEARCHED_ITEM);
-
-        $this->assertEquals($expectedResult, $result);
-    }
-
-    /**
-     * @dataProvider getIterationCountDataProvider
-     *
-     * @param list<int> $itemList
-     * @param int $expectedResult
-     * @return void
-     */
-    public function testGetIterationCount(array $itemList, int $expectedResult): void
-    {
-        $binarySearch = $this->createBinarySearch($itemList);
-
-        $binarySearch->search(self::SEARCHED_ITEM_FOR_INTERACTION_COUNT);
-
-        $result = $binarySearch->getIterationCount();
 
         $this->assertEquals($expectedResult, $result);
     }
@@ -77,6 +59,24 @@ final class BinarySearchTest extends TestCase
                         'expectedResult' => null,
                     ],
             ];
+    }
+
+    /**
+     * @dataProvider getIterationCountDataProvider
+     *
+     * @param list<int> $itemList
+     * @param int $expectedResult
+     * @return void
+     */
+    public function testGetIterationCount(array $itemList, int $expectedResult): void
+    {
+        $binarySearch = $this->createBinarySearch($itemList);
+
+        $binarySearch->search(self::SEARCHED_ITEM_FOR_INTERACTION_COUNT);
+
+        $result = $binarySearch->getIterationCount();
+
+        $this->assertEquals($expectedResult, $result);
     }
 
     /**

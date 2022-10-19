@@ -26,17 +26,11 @@ final class BinarySearch implements BinarySearchInterface
         $this->high = count($itemList);
     }
 
-    /**
-     * @param mixed $searchedItem
-     * @return int|null
-     */
     public function search(mixed $searchedItem): ?int
     {
         if (count($this->itemList) === 0) {
             return null;
         }
-
-        $this->iterationCount = 1;
 
         while ($this->low <= $this->high) {
             $this->iterationCount++;

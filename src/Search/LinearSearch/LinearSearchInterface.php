@@ -1,8 +1,8 @@
 <?php
 
-namespace KirillZak\Algorithm\Search\BinarySearch;
+namespace KirillZak\Algorithm\Search\LinearSearch;
 
-interface BinarySearchInterface
+interface LinearSearchInterface
 {
     public function search(mixed $searchedItem): ?int;
 
