@@ -54,7 +54,7 @@ final class BinarySearchTest extends TestCase
     }
 
     /**
-     * @return array{string: array{string: list<int>, string: ?int}}
+     * @return array<string, array{itemList: list<int>, expectedResult: ?int}>
      * @throws Exception
      */
     public function searchDataProvider(): array
@@ -80,7 +80,7 @@ final class BinarySearchTest extends TestCase
     }
 
     /**
-     * @return array{string: array{string: list<int>, string: int}}
+     * @return array<string, array{itemList: list<int>, expectedResult: int}>
      */
     public function getIterationCountDataProvider(): array
     {
@@ -104,6 +104,9 @@ final class BinarySearchTest extends TestCase
             ];
     }
 
+    /**
+     * @param list<int> $itemList
+     */
     private function createBinarySearch(array $itemList): BinarySearchInterface
     {
         return new BinarySearch($itemList);
@@ -145,6 +148,7 @@ final class BinarySearchTest extends TestCase
     }
 
     /**
+     * @return list<int>
      * @throws Exception
      */
     private function fillItemListAfterSearchedValue(): array
