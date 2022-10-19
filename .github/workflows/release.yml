@@ -34,6 +34,20 @@ jobs:
             - name: Run parallel-lint tests
               run: make parallel-lint
 
+    PhpStan:
+        name: Run PHPStan
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Check out the codebase
+              uses: actions/checkout@v3
+
+            - name: Run composer install
+              uses: php-actions/composer@v6
+
+            - name: Run PHPUnit tests
+              run: make phpstan
+
     UnitTests:
         name: Run PHPUnit tests
         runs-on: ubuntu-latest
