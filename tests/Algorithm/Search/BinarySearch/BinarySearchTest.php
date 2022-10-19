@@ -1,10 +1,10 @@
 <?php
 
-namespace KirillZak\Algorithm\Tests\Algorithm\BinarySearch;
+namespace KirillZak\Algorithm\Tests\Algorithm\Search\BinarySearch;
 
 use Exception;
-use KirillZak\Algorithm\Algorithm\BinarySearch\BinarySearch;
-use KirillZak\Algorithm\Algorithm\BinarySearch\BinarySearchInterface;
+use KirillZak\Algorithm\Search\BinarySearch\BinarySearch;
+use KirillZak\Algorithm\Search\BinarySearch\BinarySearchInterface;
 use PHPUnit\Framework\TestCase;
 
 final class BinarySearchTest extends TestCase

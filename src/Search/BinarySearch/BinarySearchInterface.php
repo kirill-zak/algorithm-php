@@ -1,6 +1,6 @@
 <?php
 
-namespace KirillZak\Algorithm\Algorithm\BinarySearch;
+namespace KirillZak\Algorithm\Search\BinarySearch;
 
 interface BinarySearchInterface
 {

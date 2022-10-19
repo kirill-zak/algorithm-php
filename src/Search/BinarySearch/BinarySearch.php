@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace KirillZak\Algorithm\Algorithm\BinarySearch;
+namespace KirillZak\Algorithm\Search\BinarySearch;
 
 final class BinarySearch implements BinarySearchInterface
 {
