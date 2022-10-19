@@ -10,9 +10,11 @@ use PHPUnit\Framework\TestCase;
 final class BinarySearchTest extends TestCase
 {
     private const ITEM_LIST_SIZE = 100;
-    private const ITEM_LIST_SIZE_FOR_INTERACTION_COUNT = 100;
+    private const ITEM_LIST_SIZE_FOR_INTERACTION_COUNT_100_ELEMENTS = 100;
+    private const ITEM_LIST_SIZE_FOR_INTERACTION_COUNT_240000_ELEMENTS = 240000;
     private const ITERATION_COUNT_FOR_EMPTY_LIST = 0;
     private const ITERATION_COUNT_FOR_LIST_WITH_100_ELEMENTS = 7;
+    private const ITERATION_COUNT_FOR_LIST_WITH_240000_ELEMENTS = 18;
     private const SEARCHED_ITEM = 68498;
     private const SEARCHED_ITEM_FOR_INTERACTION_COUNT = 57;
     private const SEARCHED_ITEM_POSITION = 74;
@@ -91,8 +93,13 @@ final class BinarySearchTest extends TestCase
                     ],
                 'Item list with 100 elements' =>
                     [
-                        'itemList' => $this->createItemListForGetInteractionCount(),
+                        'itemList' => $this->createItemListForGetInteractionCount(self::ITEM_LIST_SIZE_FOR_INTERACTION_COUNT_100_ELEMENTS),
                         'expectedResult' => self::ITERATION_COUNT_FOR_LIST_WITH_100_ELEMENTS,
+                    ],
+                'Item list with 240000 elements' =>
+                    [
+                        'itemList' => $this->createItemListForGetInteractionCount(self::ITEM_LIST_SIZE_FOR_INTERACTION_COUNT_240000_ELEMENTS),
+                        'expectedResult' => self::ITERATION_COUNT_FOR_LIST_WITH_240000_ELEMENTS,
                     ],
             ];
     }
@@ -191,8 +198,8 @@ final class BinarySearchTest extends TestCase
     /**
      * @return list<int>
      */
-    private function createItemListForGetInteractionCount(): array
+    private function createItemListForGetInteractionCount(int $itemListSize): array
     {
-        return range(0, self::ITEM_LIST_SIZE_FOR_INTERACTION_COUNT);
+        return range(0, $itemListSize);
     }
 }
