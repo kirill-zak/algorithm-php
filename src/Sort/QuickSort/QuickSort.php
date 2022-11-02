@@ -12,7 +12,7 @@ final class QuickSort implements QuickSortInterface
      */
     public function sort(array $itemList): array
     {
-        $this->quickSort(0, count($itemList)-1, $itemList);
+        $this->quickSort(0, count($itemList) - 1, $itemList);
 
         return $itemList;
     }
@@ -22,11 +22,11 @@ final class QuickSort implements QuickSortInterface
      */
     private function quickSort(int $low, int $high, array &$list): void
     {
-        if($low < $high) {
+        if ($low < $high) {
             $partitionIndex = $this->partition($low, $high, $list);
 
-            $this->quickSort($low, $partitionIndex-1, $list);
-            $this->quickSort($partitionIndex+1, $high, $list);
+            $this->quickSort($low, $partitionIndex - 1, $list);
+            $this->quickSort($partitionIndex + 1, $high, $list);
         }
     }
 
@@ -37,18 +37,18 @@ final class QuickSort implements QuickSortInterface
     {
         $pivot = $list[$high];
 
-        $i = ($low-1);
+        $i = ($low - 1);
 
-        for ($j = $low; $j <= $high-1; $j++) {
-            if($list[$j] < $pivot) {
+        for ($j = $low; $j <= $high - 1; $j++) {
+            if ($list[$j] < $pivot) {
                 $i++;
                 $this->swapListItems($i, $j, $list);
             }
         }
 
-        $this->swapListItems($i+1, $high, $list);
+        $this->swapListItems($i + 1, $high, $list);
 
-        return $i+1;
+        return $i + 1;
     }
 
     /**
