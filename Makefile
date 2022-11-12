@@ -10,7 +10,7 @@ parallel-lint:
 	./vendor/bin/parallel-lint ./src
 
 phpstan:
-	./vendor/bin/phpstan analyse --level 9 src tests
+	./vendor/bin/phpstan analyse -c phpstan.neon
 
 unit-tests:
 	./vendor/bin/phpunit --configuration ./tests/phpunit.xml
